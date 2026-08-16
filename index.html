@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Swastidipa! ????</title>
+    <style>
+        /* Base Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Beautiful vibrant animated gradient background */
+            background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a18cd1, #fbc2eb);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        /* Background Animation */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Card Container with Glassmorphism and Float Animation */
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            z-index: 10;
+            position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            animation: fadeInCard 1.5s ease-out forwards, floatCard 4s ease-in-out infinite;
+        }
+
+        /* Card Animations */
+        @keyframes fadeInCard {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatCard {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        h1 {
+            color: #ff4757;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .name-highlight {
+            background: linear-gradient(45deg, #ff6b81, #9b59b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.3em;
+            font-weight: 900;
+            display: block;
+            margin-top: 5px;
+        }
+
+        p {
+            color: #444;
+            font-size: 1.15em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .special-msg {
+            font-weight: bold;
+            color: #d2527f;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+
+        /* Pulsing Button */
+        .btn {
+            background: linear-gradient(45deg, #ff4757, #ff6b81);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+            transition: all 0.3s ease;
+            animation: pulseBtn 2s infinite;
+        }
+
+        @keyframes pulseBtn {
+            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 71, 87, 0.7); }
+            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4); }
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #ff6b81, #ff4757);
+        }
+        
+        /* Mobile adjustments */
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8em; }
+            .name-highlight { font-size: 1.2em; }
+            p { font-size: 1.05em; line-height: 1.5; }
+            .card { padding: 30px 20px; }
+            .btn { font-size: 1em; padding: 12px 25px; }
+        }
+    </style>
+    
+    <!-- External Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Happy Birthday!<br> <span class="name-highlight">Swastidipa</span></h1>
+        
+        <p>To my absolute favorite person and best friend, wishing you the most amazing birthday ever!</p>
+        
+        <p>You bring so much joy, laughter, and light into my life. May your special day be just as beautiful, bright, and wonderful as your smile.</p>
+        
+        <p>Keep shining, keep slaying, and let's make this year your best one yet. I'm so incredibly lucky to have you by my side.</p>
+        
+        <p class="special-msg">Cheers to you, Bestie!</p>
+        
+        <button class="btn" onclick="fireConfetti()">Tap for Magic!</button>
+    </div>
+
+    <script>
+        // Trigger confetti when the page loads
+        window.onload = function() {
+            setTimeout(fireConfetti, 600); // Slight delay so she sees the card first
+        };
+
+        // Function for a beautiful, colorful confetti explosion
+        function fireConfetti() {
+            var duration = 3.5 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            function randomInRange(min, max) {
+              return Math.random() * (max - min) + min;
+            }
+
+            var interval = setInterval(function() {
+              var timeLeft = animationEnd - Date.now();
+
+              if (timeLeft <= 0) {
+                return clearInterval(interval);
+              }
+
+              var particleCount = 50 * (timeLeft / duration);
+              
+              // Confetti from left
+              confetti(Object.assign({}, defaults, { 
+                  particleCount,
+                  origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+                  colors: ['#ff4757', '#ff6b81', '#ffffff', '#9b59b6', '#f1c40f']
+              }));
+              
+              // Confetti from right
+              confetti(Object.assign({}, defaults, { 
+                  particleCount,
+                  origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+                  colors: ['#ff4757', '#ff6b81', '#ffffff', '#9b59b6', '#f1c40f']
+              }));
+            }, 250);
+        }
+    </script>
+</body>
+</html>
